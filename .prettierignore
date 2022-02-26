@@ -1,0 +1,6 @@
+www/
+coverage/
+dist/
+**/environment.**.ts
+**.js
+src/app/services/api/**

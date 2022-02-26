@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/eslintrc.json",
+  "extends": "@coara/eslint-config-ng",
+  "rules": {
+    "@typescript-eslint/indent": "off",
+    "@angular-eslint/template/no-negated-async": "off"
+  }
+}
