@@ -1,0 +1,9 @@
+{
+  "supportsES6": true,
+  "withInterfaces": true,
+  "providedInRoot": true,
+  "ngVersion": 13.0,
+  "fileNaming": "kebab-case",
+  "prependFormOrBodyParameters": true,
+  "useSingleRequestParameter": true
+}
