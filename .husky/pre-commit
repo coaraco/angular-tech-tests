@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run coara-pre-commit lint-staged-stylelint
-npm run coara-pre-commit lint-staged-prettier
+# npm run coara-pre-commit lint-staged-stylelint
+# npm run coara-pre-commit lint-staged-prettier
