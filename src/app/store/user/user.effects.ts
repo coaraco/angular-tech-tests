@@ -10,6 +10,8 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
 export class UserEffects {
+
+
   public login$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.login),
@@ -41,4 +43,9 @@ export class UserEffects {
   );
 
   constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) {}
+
+ public forgotPassword(termino: string): Observable<Action> {
+    return this.http.get<Action>(`https://httpin.org/get/?username=${termino}`);
+  };
+
 }
