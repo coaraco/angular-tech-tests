@@ -12,4 +12,11 @@ export const userReducer = createReducer(
   on(UserActions.loginFailure, state => ({ ...state, loading: false })),
 
   on(UserActions.logout, () => initialState),
+
+  on(UserActions.forgot, state => ({...state, loading: true})),
+
+  on(UserActions.forgotSuccess, state => ({...state, loading: false})),
+
+  on(UserActions.forgotFailure, state => ({...state, loading: false})),
+
 );
