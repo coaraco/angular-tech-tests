@@ -10,6 +10,8 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
 export class UserEffects {
+
+
   public login$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.login),
@@ -40,5 +42,25 @@ export class UserEffects {
     { dispatch: false },
   );
 
+  public forgotPassword$: Observable<Action> = createEffect(() =>
+  this.actions$.pipe(
+    ofType(UserActions.forgot),
+    mergeMap(({ username }) =>
+      this.http.get(`https://httpin.org/get/?username=${ username }`).pipe(
+        map(() => UserActions.forgotSuccess()),
+        catchError((error: HttpErrorResponse) => of(UserActions.forgotFailure({ reason: error.message}))),
+      ),
+    ),
+  ),
+);
+
   constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) {}
+
+<<<<<<< Updated upstream
+ public forgotPassword(termino: string): Observable<Action> {
+    return this.http.get<Action>(`https://httpin.org/get/?username=${termino}`);
+  };
+
+=======
+>>>>>>> Stashed changes
 }
