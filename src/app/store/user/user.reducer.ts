@@ -12,4 +12,10 @@ export const userReducer = createReducer(
   on(UserActions.loginFailure, state => ({ ...state, loading: false })),
 
   on(UserActions.logout, () => initialState),
+
+  on(UserActions.recover, state => ({ ...state, loading: true })),
+
+  on(UserActions.recoverSuccess, state => ({ ...state, loading: false, response:true })),
+
+  on(UserActions.recoverFailure, state => ({ ...state, loading: false })),
 );

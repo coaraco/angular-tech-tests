@@ -40,5 +40,17 @@ export class UserEffects {
     { dispatch: false },
   );
 
+  public recover$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.recover),
+      mergeMap(({ username }) =>
+        this.http.get("https://httpbin.org/get?username=" + username ).pipe(
+          map(() => UserActions.recoverSuccess({ response: true })),
+          catchError((error: HttpErrorResponse) => of(UserActions.recoverFailure({ reason: error.message }))),
+        ),
+      ),
+    ),
+  );
+
   constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) {}
 }
