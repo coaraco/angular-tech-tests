@@ -39,6 +39,20 @@ export class UserEffects {
       ),
     { dispatch: false },
   );
+  
+  public forgottenPassword$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.forgottenPassword),
+      mergeMap(({ username }) =>
+        this.http.post("https://httpbin.org/get/?username="+username, { username }).pipe(
+          map(() => UserActions.logout()),
+          catchError((error: HttpErrorResponse) => of(UserActions.loginFailure({ reason: error.message }))),
+        ),
+      ),
+    ),
+  );
+
+
 
   constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) {}
 }
