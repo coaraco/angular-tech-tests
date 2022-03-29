@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+
 
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
@@ -15,10 +16,12 @@ import * as FromUser from "src/app/store/user/user.selectors";
   styleUrls: ["./forgot-password.page.scss"],
 })
 export class ForgotPasswordPage implements OnInit {
+
   enabled:boolean = false
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
   public forgottenForm: FormGroup;
-  constructor(public alertController: AlertController, private store: Store<RootState>) {}
+
+  constructor(public alertController: AlertController, private store: Store<RootState>, private AppRoutes: NavController) {}
 
   ngOnInit(){
     this.forgottenForm = new FormGroup({
@@ -29,6 +32,7 @@ export class ForgotPasswordPage implements OnInit {
   //Updates the button and calls the API
   async setLoading(){
     await this.rememberPassword()
+    
     await this.presentAlert()
   }
 
@@ -54,7 +58,7 @@ export class ForgotPasswordPage implements OnInit {
     await alert.present();
 
     await alert.onDidDismiss().then(()=>{
-      // this.loading = false
+      this.AppRoutes.back();
     }) 
   }
 }
