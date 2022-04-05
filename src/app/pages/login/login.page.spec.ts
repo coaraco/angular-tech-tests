@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
 import { LoginPage } from "./login.page";
 import { provideMockStore } from "@ngrx/store/testing";
-import { initialRootState } from "src/app/store";
+import { initialRootState } from "../../store";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { RouterTestingModule } from "@angular/router/testing";
 

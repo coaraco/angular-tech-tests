@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
 import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
@@ -9,6 +9,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { effects, reducers, RootState } from "./store";
 import { HttpClientModule } from "@angular/common/http";
 import { localStorageSync } from "ngrx-store-localstorage";
+ 
 
 export const localStorageReduxSync = (reducer: ActionReducer<RootState>): ActionReducer<any> =>
   localStorageSync({ keys: [{ user: ["accessToken"] }], rehydrate: true })(reducer);
@@ -28,5 +29,6 @@ const metaReducers: MetaReducer<any, any>[] = [localStorageReduxSync];
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

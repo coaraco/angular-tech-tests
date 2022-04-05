@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import * as UserActions from "src/app/store/user/user.actions";
+import * as UserActions from "../../store/user/user.actions";
 import { catchError, map, mergeMap, tap } from "rxjs/operators";
 import { NavController } from "@ionic/angular";
-import { AppRoutes } from "src/app/constants";
+import { AppRoutes } from "../../constants";
 import { Observable, of } from "rxjs";
 import { Action } from "@ngrx/store";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";

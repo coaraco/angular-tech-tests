@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { RootState } from "src/app/store";
+import { RootState } from "../../store";
 import { Store } from "@ngrx/store";
-import * as UserActions from "src/app/store/user/user.actions";
+import * as UserActions from "../../store/user/user.actions";
 
 @Component({
   selector: "app-home",
