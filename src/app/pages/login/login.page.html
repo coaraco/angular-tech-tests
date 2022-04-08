@@ -1,26 +1,47 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [formGroup]="form">
-  <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input formControlName="username"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input type="password" formControlName="password"></ion-input>
-  </ion-item>
 
-  <ion-button [disabled]="form.invalid" (click)="login()">
-    <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
-    <ng-template #text><ion-text>Login</ion-text></ng-template>
-  </ion-button>
+<body class="align">
 
-  <ion-item lines="none">
-    <ion-button fill="clear" [routerLink]="['/forgot-password']">I forgot my password</ion-button>
-  </ion-item>
-</ion-content>
+  <div class="grid align__item">
+
+    <div class="register">
+
+      <img class="site__logo" width="100"  viewBox="77.7 214.9 274.7 412" src="../../../assets/icon/icon.png">
+
+      <ion-title ><b>Login</b></ion-title>
+
+      <form  [formGroup]="form" action="" method="post" class="form">
+
+        <div class="form__field">
+          <ion-label>Email</ion-label>
+          <ion-input type="email" formControlName="username"></ion-input>
+        </div>
+
+        <div class="form__field">
+          <ion-label>Password</ion-label>
+          <ion-input class="distance" [type]="fieldTextType ? 'text' : 'password'" formControlName="password">
+            <ion-icon class="fa" (click)="toggleFieldTextType()" [name]="fieldTextType ? 'eye-outline' : 'eye-off'" ></ion-icon>    
+          </ion-input>
+       
+        </div>
+
+  
+        <div class="submitclass"> 
+          <ion-button class="buttontype" type="submit" [disabled]="form.invalid" (click)="login()">
+            <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
+            <ng-template #text><ion-text class="textbutton"><b><ion-icon class="iconbutton" name="exit-outline"></ion-icon> Login</b></ion-text></ng-template>
+          </ion-button>
+        </div>
+
+
+      </form>
+
+      <p class="submitclass"><b>Forgot your password?</b></p>
+      <p class="linkpos"><b><ion-button class="link" fill="clear" [routerLink]="['/forgot-password']">I forgot my password</ion-button></b></p>
+
+    </div>
+
+  </div>
+
+</body>

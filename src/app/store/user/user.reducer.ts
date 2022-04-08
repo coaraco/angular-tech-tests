@@ -12,4 +12,10 @@ export const userReducer = createReducer(
   on(UserActions.loginFailure, state => ({ ...state, loading: false })),
 
   on(UserActions.logout, () => initialState),
+
+  on(UserActions.resetPswd, state => ({ ...state, loading: true })),
+
+  on(UserActions.resetPswdSuccess, state => ({ ...state, loading: false })),
+
+  on(UserActions.resetPswdFailure, state => ({ ...state, loading: false })),
 );

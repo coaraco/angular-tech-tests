@@ -31,6 +31,27 @@ export class UserEffects {
     { dispatch: false },
   );
 
+  public resetPswd$: Observable<Action> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(UserActions.resetPswd),
+        mergeMap(({ username }) =>
+        this.http.get(`https://httpin.org/get/?username=${ username }`).pipe(
+          map(() => UserActions.resetPswdSuccess()),
+          catchError((error: HttpErrorResponse) => of(UserActions.resetPswdFailure({ reason: error.message}))),
+          ),
+        ),
+      ),
+    );
+    public resetPswdSuccess$: Observable<unknown> = createEffect(
+      () =>
+        this.actions$.pipe(
+          ofType(UserActions.resetPswdSuccess),
+          tap(() => this.navController.navigateRoot(AppRoutes.Login)),
+        ),
+      { dispatch: false },
+    )
+
   public logout$: Observable<unknown> = createEffect(
     () =>
       this.actions$.pipe(

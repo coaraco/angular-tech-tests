@@ -8,12 +8,14 @@ import * as FromUser from "src/app/store/user/user.selectors";
 
 @Component({
   selector: "app-login",
-  templateUrl: "./login.page.html",
+  templateUrl: "./login.page.html", 
   styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
   public form: FormGroup;
+  fieldTextType: boolean;
+ 
 
   constructor(private store: Store<RootState>) {}
 
@@ -26,5 +28,8 @@ export class LoginPage implements OnInit {
 
   public login(): void {
     this.store.dispatch(UserActions.login(this.form.value));
+  }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }

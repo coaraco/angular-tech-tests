@@ -8,10 +8,10 @@ import { RouterTestingModule } from "@angular/router/testing";
 
 describe("LoginPage", () => {
   let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+  let fixture: ComponentFixture<LoginPage>; 
 
   beforeEach(
-    waitForAsync(() => {
+    waitForAsync(() => { 
       TestBed.configureTestingModule({
         declarations: [LoginPage],
         imports: [IonicModule, RouterTestingModule],
