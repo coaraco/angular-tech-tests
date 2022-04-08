@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
 import { HomePage } from "./home.page";
 import { provideMockStore } from "@ngrx/store/testing";
-import { initialRootState } from "../../store";
+import { initialRootState } from "src/app/store";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("HomePage", () => {

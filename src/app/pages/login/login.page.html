@@ -1,4 +1,6 @@
 
+
+
 <body class="align">
 
   <div class="grid align__item">
@@ -26,7 +28,7 @@
 
   
         <div class="submitclass"> 
-          <ion-button type="submit" [disabled]="form.invalid" (click)="login()">
+          <ion-button class="buttontype" type="submit" [disabled]="form.invalid" (click)="login()">
             <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
             <ng-template #text><ion-text class="textbutton"><b><ion-icon class="iconbutton" name="exit-outline"></ion-icon> Login</b></ion-text></ng-template>
           </ion-button>
@@ -36,7 +38,7 @@
       </form>
 
       <p class="submitclass"><b>Forgot your password?</b></p>
-      <p class="link"><b>Be an early adopter</b></p>
+      <p class="linkpos"><b><ion-button class="link" fill="clear" [routerLink]="['/forgot-password']">I forgot my password</ion-button></b></p>
 
     </div>
 

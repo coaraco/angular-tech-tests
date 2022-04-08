@@ -2,13 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { RootState } from "../../store";
-import * as UserActions from "../../store/user/user.actions";
-import * as FromUser from "../../store/user/user.selectors";
+import { RootState } from "src/app/store";
+import * as UserActions from "src/app/store/user/user.actions";
+import * as FromUser from "src/app/store/user/user.selectors";
 
 @Component({
   selector: "app-login",
-  templateUrl: "./login.page.html",
+  templateUrl: "./login.page.html", 
   styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
@@ -29,9 +29,7 @@ export class LoginPage implements OnInit {
   public login(): void {
     this.store.dispatch(UserActions.login(this.form.value));
   }
-
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
-
 }

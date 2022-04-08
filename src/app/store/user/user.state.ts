@@ -1,5 +1,6 @@
 export interface UserState {
   accessToken?: string;
+  username?: string
   loading: boolean;
 }
 

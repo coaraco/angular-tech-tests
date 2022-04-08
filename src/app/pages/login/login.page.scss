@@ -1,3 +1,4 @@
+/* - */
 $base-bgcolor: #ffffff;
 $base-color: #000000;
 $base-font-weight: 300;
@@ -81,12 +82,14 @@ $grid-width: 100%;
 }
 
 .link {
-  color: #7affd7;
+  color: #25725b;
   text-decoration: underline;
   font-size: 0.75rem;
-  text-align: center;
 }
 
+.linkpos {
+    text-align: center;
+  }
 .register {
 background-color: #fafafa;
   text-align: left;
@@ -105,6 +108,15 @@ background-color: #fafafa;
     font-size: 1em;
   }
 }
+.buttontype{
+    --background: #00ffb3 !important;
+    --color:black;
+    --border-radius: 100px;
+    width: 85%;
+    --padding-top: 8%;
+    --padding-bottom: 8%;
+    margin-bottom: 5%;
+}
 
 ion-title {
     padding-left: 0%;
@@ -114,16 +126,6 @@ ion-title {
 }
 ion-label{
   font-size: 0.75rem;
-}
-
-ion-button{
-  --background: #00ffb3 !important;
-  --color:black;
-  --border-radius: 100px;
-  width: 85%;
-  --padding-top: 8%;
-  --padding-bottom: 8%;
-  margin-bottom: 5%;
 }
 
 ion-input {

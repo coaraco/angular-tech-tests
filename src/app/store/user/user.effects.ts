@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import * as UserActions from "../../store/user/user.actions";
+import * as UserActions from "src/app/store/user/user.actions";
 import { catchError, map, mergeMap, tap } from "rxjs/operators";
 import { NavController } from "@ionic/angular";
-import { AppRoutes } from "../../constants";
+import { AppRoutes } from "src/app/constants";
 import { Observable, of } from "rxjs";
 import { Action } from "@ngrx/store";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
@@ -30,6 +30,27 @@ export class UserEffects {
       ),
     { dispatch: false },
   );
+
+  public resetPswd$: Observable<Action> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(UserActions.resetPswd),
+        mergeMap(({ username }) =>
+        this.http.get(`https://httpin.org/get/?username=${ username }`).pipe(
+          map(() => UserActions.resetPswdSuccess()),
+          catchError((error: HttpErrorResponse) => of(UserActions.resetPswdFailure({ reason: error.message}))),
+          ),
+        ),
+      ),
+    );
+    public resetPswdSuccess$: Observable<unknown> = createEffect(
+      () =>
+        this.actions$.pipe(
+          ofType(UserActions.resetPswdSuccess),
+          tap(() => this.navController.navigateRoot(AppRoutes.Login)),
+        ),
+      { dispatch: false },
+    )
 
   public logout$: Observable<unknown> = createEffect(
     () =>
