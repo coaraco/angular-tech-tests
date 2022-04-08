@@ -8,8 +8,8 @@ import { SharedModule } from "src/app/shared.module";
 @NgModule({
   imports: [
     SharedModule,
-    CommonModule, 
-    IonicModule, 
+    CommonModule,
+    IonicModule,
     LoginPageRoutingModule],
   declarations: [LoginPage],
 })

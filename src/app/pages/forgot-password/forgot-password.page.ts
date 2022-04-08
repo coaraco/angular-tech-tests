@@ -13,8 +13,7 @@ import * as FromUser from "src/app/store/user/user.selectors";
 })
 export class ForgotPasswordPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
-
-  forgotPasswordForm: FormGroup;
+  public forgotPasswordForm: FormGroup;
 
   constructor(
     private store: Store<RootState>,
@@ -22,13 +21,13 @@ export class ForgotPasswordPage implements OnInit {
 
   public ngOnInit(): void {
     this.forgotPasswordForm = new FormGroup({
-      username: new FormControl('', [Validators.required])
+      username: new FormControl("", [Validators.required]),
     });
   }
   public async sendRecovery(): Promise<void> {
     const username: string = this.forgotPasswordForm.controls.username.value;
     this.store.dispatch(UserActions.recoverPassword({ username }));
-    
+
   }
 
 }

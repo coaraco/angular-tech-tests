@@ -13,6 +13,7 @@ import { RootState } from "..";
 
 @Injectable()
 export class UserEffects {
+
   public login$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.login),
@@ -50,16 +51,17 @@ export class UserEffects {
         mergeMap(({ username }) =>
           this.userService.sendRecovery(username).pipe(
             map(async (response) => {
-              const username: string = response.body.args.username;
-              this.store.dispatch(UserActions.recoverySuccess({ username }));
-              const message = 'Recovery link has been sent';
-              const toast = this.displayNotification(message); // Only for test purpose. There should be some error status handling.  
+              const name: string = response.body.args.username;
+              this.store.dispatch(UserActions.recoverySuccess({ username: name }));
+              const message = "Recovery link has been sent";
+              // Only for test purpose. There should be some error status handling.
+              const toast = this.displayNotification(message);
               await (await toast).present();
             }),
             catchError(async (error: HttpErrorResponse) => {
               // Stop loading if request fails and show error notification.
               this.store.dispatch(UserActions.recoveryFailure({ reason: error.message }));
-              const toast = this.displayNotification(error.message); // Only for test purpose. There should be some error status handling.  
+              const toast = this.displayNotification(error.message); // Only for test purpose. There should be some error status handling.
               await (await toast).present();
             }),
           ),
@@ -67,13 +69,6 @@ export class UserEffects {
       ),
     { dispatch: false },
   );
-
-  public displayNotification = (message, duration = 3000) => {
-    return this.toastController.create({
-      message: message, 
-      duration: duration
-    });
-  }
 
   public recoverySuccess$: Observable<unknown> = createEffect(
     () =>
@@ -84,13 +79,17 @@ export class UserEffects {
     { dispatch: false },
   );
 
-
-
   constructor(
     private store: Store<RootState>,
     private actions$: Actions,
     private http: HttpClient,
     private userService: UserService,
     private toastController: ToastController,
-    private navController: NavController) { }
+    private navController: NavController) {}
+
+    public displayNotification = (message, duration = 3000): Promise<HTMLIonToastElement> => this.toastController.create({
+      message,
+      duration,
+    });
+
 }
