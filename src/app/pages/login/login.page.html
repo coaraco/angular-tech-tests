@@ -1,26 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [formGroup]="form">
-  <ion-item>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [formGroup]="form" class="form">
+    
     <ion-label>Username</ion-label>
-    <ion-input formControlName="username"></ion-input>
-  </ion-item>
-
-  <ion-item>
+    <ion-item class="form__input">
+      <ion-input 
+        formControlName="username">
+      </ion-input>
+    </ion-item>
+  
     <ion-label>Password</ion-label>
-    <ion-input type="password" formControlName="password"></ion-input>
-  </ion-item>
-
-  <ion-button [disabled]="form.invalid" (click)="login()">
-    <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
-    <ng-template #text><ion-text>Login</ion-text></ng-template>
-  </ion-button>
-
-  <ion-item lines="none">
-    <ion-button fill="clear" [routerLink]="['/forgot-password']">I forgot my password</ion-button>
-  </ion-item>
-</ion-content>
+    <ion-item class="form__input">
+      <ion-input 
+        type="password" 
+        formControlName="password">
+      </ion-input>
+    </ion-item>
+  
+    <ion-button 
+      [disabled]="form.invalid" 
+      expand="block"
+      size="large"
+      class="form__button"
+      (click)="login()">
+      <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
+      <ng-template #text>
+        <ion-icon name="enter-outline"></ion-icon>
+        <ion-text>Login</ion-text>
+      </ng-template>
+    </ion-button>
+  
+    <ion-item lines="none">
+      <ion-button 
+        fill="clear" 
+        [routerLink]="['/forgot-password']">I forgot my password
+      </ion-button>
+    </ion-item>
+  </ion-content>
+  
