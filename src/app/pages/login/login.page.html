@@ -1,26 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [formGroup]="form">
+<ion-content [formGroup]="form" class="form">
+  <img src="../../../assets/icon/coara.svg" alt="appLogo" class="mainLogo" />
+  <ion-title>Login</ion-title>
+  <ion-label>Email</ion-label>
   <ion-item>
-    <ion-label>Username</ion-label>
     <ion-input formControlName="username"></ion-input>
   </ion-item>
 
+  <ion-label>Password</ion-label>
   <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input type="password" formControlName="password"></ion-input>
+    <ion-input [type]="getType()" class="passwordInput" formControlName="password">
+    </ion-input>
+		<ion-button expand="block" fill="solid" shape="round"  class="clickIcon" (click)="toggleDisplay()"
+        ><ion-icon *ngIf="isShown" name="eye-off" class="eyeIcon"></ion-icon>
+        <ion-icon *ngIf="isShown === false" name="eye-off" class="eyeIcon2"></ion-icon>
+      </ion-button>
   </ion-item>
 
-  <ion-button [disabled]="form.invalid" (click)="login()">
+  <ion-button class="loginButton" [disabled]="form.invalid" (click)="login()">
     <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
-    <ng-template #text><ion-text>Login</ion-text></ng-template>
+    <ng-template #text><ion-icon name="log-in-outline" class="loginIcon"></ion-icon> <ion-text>Login</ion-text></ng-template>
   </ion-button>
 
   <ion-item lines="none">
-    <ion-button fill="clear" [routerLink]="['/forgot-password']">I forgot my password</ion-button>
+    <ion-button fill="clear" [routerLink]="['/forgot-password']" class="forgotPass">Forgot your password?</ion-button>
   </ion-item>
+  <ion-nav-link href="#" class="underline">Be an early adopter</ion-nav-link>
 </ion-content>
