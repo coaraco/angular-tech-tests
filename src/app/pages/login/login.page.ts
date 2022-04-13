@@ -15,6 +15,8 @@ export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
   public form: FormGroup;
 
+  public isShown: boolean = false;
+
   constructor(private store: Store<RootState>) {}
 
   public ngOnInit(): void {
@@ -27,4 +29,10 @@ export class LoginPage implements OnInit {
   public login(): void {
     this.store.dispatch(UserActions.login(this.form.value));
   }
+  public toggleDisplay(): void {
+    this.isShown = !this.isShown;
+  }
+	public getType(): any {
+		return this.isShown ? "password" : "text";
+	}
 }
