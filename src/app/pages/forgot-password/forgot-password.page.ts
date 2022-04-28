@@ -20,7 +20,7 @@ export class ForgotPasswordPage implements OnInit {
     });
   }
 
-  public requestPassword(): void {
+  public async requestPassword(): Promise <void> {
     this.store.dispatch(UserActions.forgotPassword(this.form.value));
   }
 }
