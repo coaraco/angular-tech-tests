@@ -12,3 +12,6 @@ export const loginSuccess = createAction("[USER] Login Success", props<{ accessT
 export const loginFailure = createAction("[USER] Login Failure", props<{ reason: string }>());
 
 export const logout = createAction("[USER] Logout");
+
+export const forgotPassword = createAction("[USER] Request new password", props <{username: string}>());
+export const newPassword = createAction("[USER] New password requested", props<{username: string}>());

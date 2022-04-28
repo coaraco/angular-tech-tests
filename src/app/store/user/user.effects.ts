@@ -40,5 +40,25 @@ export class UserEffects {
     { dispatch: false },
   );
 
+  public requestPassword$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.forgotPassword),
+      mergeMap(({ username }) =>
+        this.http.get(`https://httpbin.org/get/?username=${username}`).pipe(
+          map(() => UserActions.newPassword({ username })),
+        ),
+      ),
+    ),
+  );
+
+  public newPassword$: Observable<unknown> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(UserActions.forgotPassword),
+        tap(() => this.navController.navigateRoot(AppRoutes.ForgotPassword)),
+      ),
+    { dispatch: false },
+  );
+
   constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) {}
 }
