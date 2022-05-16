@@ -7,6 +7,7 @@ on:
 
 jobs:
   build_and_preview:
+    environment: preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
