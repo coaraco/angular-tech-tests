@@ -22,9 +22,28 @@ export class LoginPage implements OnInit {
       username: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required]),
     });
+
+    this.funkyConsoleLog();
   }
 
   public login(): void {
+    const { username, password } = this.form.value;
+    if (!username || !password) return;
+
     this.store.dispatch(UserActions.login(this.form.value));
+  }
+
+  private funkyConsoleLog(): void {
+    const message = "%c Hello 👋🏼! \nWe expect that you open the console and see that 😉\nGood job";
+    const styles = [
+      "font-size: 20px",
+      "font-family: monospace",
+      "background: white",
+      "display: inline-block",
+      "color: black",
+      "padding: 8px 19px",
+      "border: 1px dashed",
+    ].join(";");
+    console.log(message, styles); // eslint-disable-line
   }
 }
