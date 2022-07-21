@@ -18,6 +18,10 @@ const routes: Routes = [
     canActivate: [IsLoggedInGuard],
   },
   {
+    path: AppRoutes.ResetPassword,
+    loadChildren: (): any => import("./pages/reset-password/reset-password.module").then(m => m.ResetPasswordModule),
+  },
+  {
     path: "**",
     redirectTo: "home",
     pathMatch: "full",
