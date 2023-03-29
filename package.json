@@ -31,7 +31,7 @@
     "@ionic/angular": "^6.0.0",
     "@ngrx/effects": "^14.3.3",
     "@ngrx/store": "^14.3.3",
-    "ngrx-store-localstorage": "^14.0.0",
+    "ngrx-store-localstorage": "^15.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
