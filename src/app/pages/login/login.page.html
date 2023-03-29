@@ -5,22 +5,23 @@
 </ion-header>
 
 <ion-content [formGroup]="form">
-  <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input formControlName="username"></ion-input>
-  </ion-item>
+  <div>
+    <ion-img src="https://coara.co/assets/logo/coara.svg"></ion-img>
 
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input type="password" formControlName="password"></ion-input>
-  </ion-item>
+    <ion-item lines="none" fill="outline">
+      <ion-label position="floating">Username</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
 
-  <ion-button [disabled]="form.invalid" (click)="login()">
-    <ion-spinner *ngIf="loading$|async; else text"></ion-spinner>
-    <ng-template #text><ion-text>Login</ion-text></ng-template>
-  </ion-button>
+    <ion-item lines="none" fill="outline">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-button fill="clear" [routerLink]="['/forgot-password']">I forgot my password</ion-button>
-  </ion-item>
+    <ion-button (click)="login()">
+      <ion-text>Login</ion-text>
+    </ion-button>
+
+    <ion-button fill="clear">I forgot my password</ion-button>
+  </div>
 </ion-content>

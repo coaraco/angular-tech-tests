@@ -2,5 +2,6 @@
   "extends": "@coara/stylelint-config",
   "rules": {
     "at-rule-no-unknown": null
-  }
+  },
+  "customSyntax": "postcss-less"
 }

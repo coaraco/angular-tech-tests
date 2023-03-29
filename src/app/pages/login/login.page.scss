@@ -1,1 +1,21 @@
-/* - */
+ion-content {
+  div {
+    max-width: 800px;
+    margin: auto;
+
+    ion-img {
+      width: 150px;
+      margin: 100px auto;
+    }
+
+    ion-item {
+      margin: 20px auto;
+    }
+
+    ion-button {
+      width: 200px;
+      display: block;
+      margin: 20px auto;
+    }
+  }
+}
