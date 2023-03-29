@@ -12,7 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { localStorageSync } from "ngrx-store-localstorage";
 
 export const localStorageReduxSync = (reducer: ActionReducer<RootState>): ActionReducer<any> =>
-  localStorageSync({ keys: [{ user: ["accessToken"] }], rehydrate: true })(reducer);
+  localStorageSync({ keys: [{ user: ["accessToken", "userData"] }], rehydrate: true })(reducer);
 
 const metaReducers: MetaReducer<any, any>[] = [localStorageReduxSync];
 
