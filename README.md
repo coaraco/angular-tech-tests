@@ -1,4 +1,4 @@
-# Test 1 (forgot password)
+# Forgot password
 
 ## We have to implement the forgot password functionality using @ngrx (as it's already done on login page), please, implement it and ensure you pass the following acceptance criteria:
 
@@ -10,7 +10,8 @@
 - [ ] A success message has to be shown when the api call finishes
 
 ### How can I send my response?
+
 - Fork this project
-- Checkout `test1` branch
+- Checkout `forgot-password-page` branch
 - Do your solution
-- Create a merge request from your fork at test1 to this project at test1
+- Create a merge request from your fork at forgot-password-page to this project at forgot-password-page
