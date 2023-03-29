@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "coara-tech-tests": {
+      "hosting": {
+        "preview": [
+          "coara-tech-tests"
+        ]
+      }
+    }
+  }
+}
