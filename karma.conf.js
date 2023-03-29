@@ -5,7 +5,7 @@ module.exports = function (config) {
   config.set({
     basePath: "",
     frameworks: ["jasmine", "@angular-devkit/build-angular"],
-    browserDisconnectTimeout: 20000, // 10000ms = 10 seconds,
+    browserDisconnectTimeout: 30000, // 10000ms = 10 seconds,
 
     plugins: [
       require("karma-jasmine"),
