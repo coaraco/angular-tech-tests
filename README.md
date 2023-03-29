@@ -1,4 +1,3 @@
-# QA Login page
+# This repository is only used to do tech tests to possible new team devs
 
-## This branch will be used to test possible new QAs for the team
-
+### Please, check branches to discover the current enabled tests
