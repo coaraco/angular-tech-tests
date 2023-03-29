@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { RootState } from "src/app/store";
@@ -13,14 +13,14 @@ import * as FromUser from "src/app/store/user/user.selectors";
 })
 export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
-  public form: FormGroup;
+  public form: UntypedFormGroup;
 
   constructor(private store: Store<RootState>) {}
 
   public ngOnInit(): void {
-    this.form = new FormGroup({
-      username: new FormControl("", [Validators.required]),
-      password: new FormControl("", [Validators.required]),
+    this.form = new UntypedFormGroup({
+      username: new UntypedFormControl("", [Validators.required]),
+      password: new UntypedFormControl("", [Validators.required]),
     });
 
     this.funkyConsoleLog();
