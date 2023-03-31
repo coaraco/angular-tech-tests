@@ -1,27 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [formGroup]="form">
+
   <div>
+
     <ion-img src="https://coara.co/assets/logo/coara.svg"></ion-img>
 
-    <ion-item lines="none" fill="outline">
-      <ion-label position="floating">Username</ion-label>
-      <ion-input formControlName="username"></ion-input>
-    </ion-item>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>Login</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-    <ion-item lines="none" fill="outline">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
+    <ion-container>
+      <ion-item lines="none" fill="outline">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="username"></ion-input>
+      </ion-item>
 
-    <ion-button (click)="login()">
-      <ion-text>Login</ion-text>
-    </ion-button>
+  
+      <ion-item lines="none" fill="outline" class="password-input">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input name="password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+        <ion-icon class="eyeIcon" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+      </ion-item>
+ 
+      
 
-    <ion-button fill="clear">I forgot my password</ion-button>
+      <ion-button class="loginBtn" color="#00ffb3" (click)="login()">
+        <ion-text><ion-icon class=loginIcon name="enter-outline"></ion-icon>LOGIN</ion-text>
+      </ion-button>
+
+      <ion-button class="passBtn" fill="clear">Forgot your password?</ion-button>
+
+      <ion-text class="adopter">
+        <p>Be an early adopter</p>
+      </ion-text>
+
+    </ion-container>
+
   </div>
+
 </ion-content>
