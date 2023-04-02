@@ -18,7 +18,6 @@ export class LoginPage implements OnInit {
   public form: UntypedFormGroup;
   showPassword = false;
   passwordToggleIcon = "eye";
-  private unsubscribe$ = new Subject();
 
   constructor(private store: Store<RootState>) {}
 
