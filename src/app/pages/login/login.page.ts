@@ -2,7 +2,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
-import { Observable, Subject } from "rxjs";
+import { Observable } from "rxjs";
 import { RootState } from "src/app/store";
 import * as UserActions from "src/app/store/user/user.actions";
 import * as FromUser from "src/app/store/user/user.selectors";
