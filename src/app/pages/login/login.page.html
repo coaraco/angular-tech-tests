@@ -26,10 +26,20 @@
    </ion-item>
 
     <ion-button fill="clear" class="loginbtn" (click)="login()">
-      <ion-icon class="loginbtn__icon" name="log-in-outline"></ion-icon>
-      <ion-text>Login</ion-text>
+      <ion-spinner *ngIf="loading$ | async; else text"></ion-spinner>
+      <ng-template #text>
+        <ion-icon class="loginbtn__icon" name="enter-outline"></ion-icon>
+        <ion-text>Login</ion-text>
+      </ng-template>
     </ion-button>
 
-    <ion-button fill="clear" class="forgot">I forgot my password</ion-button>
+
+    <ion-item lines="none">
+      <ion-button
+        class="forgot" 
+        fill="clear" 
+        [routerLink]="['/forgot-password']">I forgot my password
+      </ion-button>
+    </ion-item>
   </div>
 </ion-content>

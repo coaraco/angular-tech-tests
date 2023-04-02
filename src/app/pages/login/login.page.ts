@@ -1,7 +1,8 @@
+/* eslint-disable */
 import { Component, OnInit } from "@angular/core";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { RootState } from "src/app/store";
 import * as UserActions from "src/app/store/user/user.actions";
 import * as FromUser from "src/app/store/user/user.selectors";
@@ -13,15 +14,17 @@ import * as FromUser from "src/app/store/user/user.selectors";
 })
 export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
+  public username$: Observable<string> = this.store.select(FromUser.selectUsername);
   public form: UntypedFormGroup;
   showPassword = false;
-  passwordToggleIcon = 'eye';
+  passwordToggleIcon = "eye";
+  private unsubscribe$ = new Subject();
 
   constructor(private store: Store<RootState>) {}
 
   togglePassword() {
     this.showPassword = !this.showPassword;
-    this.passwordToggleIcon = this.showPassword ? 'eye-off' : 'eye';
+    this.passwordToggleIcon = this.showPassword ? "eye-off" : "eye";
   }
 
   public ngOnInit(): void {
@@ -31,14 +34,17 @@ export class LoginPage implements OnInit {
     });
 
     this.funkyConsoleLog();
+    
   }
 
+  
   public login(): void {
     const { username, password } = this.form.value;
     if (!username || !password) return;
 
     this.store.dispatch(UserActions.login(this.form.value));
   }
+
 
   private funkyConsoleLog(): void {
     const message = "%c Hello 👋🏼! \nWe expect that you open the console and see that 😉\nGood job";
