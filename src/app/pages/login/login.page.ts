@@ -14,8 +14,15 @@ import * as FromUser from "src/app/store/user/user.selectors";
 export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
   public form: UntypedFormGroup;
+  showPassword = false;
+  passwordToggleIcon = 'eye';
 
   constructor(private store: Store<RootState>) {}
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.passwordToggleIcon = this.showPassword ? 'eye-off' : 'eye';
+  }
 
   public ngOnInit(): void {
     this.form = new UntypedFormGroup({

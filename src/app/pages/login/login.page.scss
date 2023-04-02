@@ -4,8 +4,8 @@ ion-content {
     margin: auto;
 
     ion-img {
-      width: 150px;
-      margin: 100px auto;
+      width: 75px;
+      margin: 40px auto;
     }
 
     ion-item {
@@ -17,5 +17,41 @@ ion-content {
       display: block;
       margin: 20px auto;
     }
+
+    ion-input {
+      background-color: rgb(224, 224, 224);
+      border-radius: 5px;
+      padding: 30px;
+      font-size: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    ion-text {
+      color: black;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 600;
+      margin: 7px;
+    }
+
+    .loginbtn {
+      --border-radius: 30px;
+      --background: rgb(0, 255, 179);
+        width: 80vw;
+
+        &__icon {
+          color: black;
+        }
+    }
+  
+    .forgot {
+      width:100vw;
+      color: black;
+      font-size: 15px;
+      font-weight: 900;
+      margin: 7px;
+    }
+    }
+
   }
-}
