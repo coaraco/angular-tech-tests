@@ -25,7 +25,6 @@ const metaReducers: MetaReducer<any, any>[] = [localStorageReduxSync];
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
-    HttpClientModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

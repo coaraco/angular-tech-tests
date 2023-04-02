@@ -43,10 +43,5 @@ export class ForgotPasswordPage implements OnInit {
       username: new FormControl("", [Validators.required]),
     });
   }
-  public async sendRecovery(): Promise<void> {
-    const username: string = this.forgotPasswordForm.controls.username.value;
-    this.store.dispatch(UserActions.recoverPassword({ username }));
-
-  }
 
 }
