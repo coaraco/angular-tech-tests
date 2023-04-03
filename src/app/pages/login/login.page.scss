@@ -4,7 +4,7 @@ ion-content {
     margin: auto;
 
     ion-img {
-      width: 150px;
+      width: 60px;
       margin: 100px auto;
     }
 
@@ -12,10 +12,42 @@ ion-content {
       margin: 20px auto;
     }
 
-    ion-button {
-      width: 200px;
+    .button {
+      width: 400px;
       display: block;
       margin: 20px auto;
+      --background: #00FFB3;
+      --background-hover: #9ce0be;
+      --background-activated: #00FFB3;
+      --background-focused: #00FFB3;
+      --color: black;
+      --border-radius: 44px;
+      --border-color: #000;
+      --border-style: solid;
+      --border-width: 0px;
+    }
+
+    .link {
+      width: 400px;
+      margin: 20px auto;
+      --background: transparent;
+      --color: black;
+    }
+
+    h4{
+      font-size: 15px;
+      width: 200px;
+      display: block;
+      margin-left: 325px;
+    }
+
+    ion-note{
+      text-decoration: underline;
+      font-weight: bold;
+      --color: #00FFB3;
+      width: 400px;
+      margin-left: 325px;
+      display: block;
     }
   }
 }

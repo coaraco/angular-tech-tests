@@ -14,6 +14,7 @@ import * as FromUser from "src/app/store/user/user.selectors";
 export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
   public form: UntypedFormGroup;
+  public showPassword: string = "password";
 
   constructor(private store: Store<RootState>) {}
 
@@ -45,5 +46,10 @@ export class LoginPage implements OnInit {
       "border: 1px dashed",
     ].join(";");
     console.log(message, styles); // eslint-disable-line
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public togglePasswordMode(): void {
+    this.showPassword = this.showPassword === "text" ? "password" : "text";
   }
 }

@@ -1,27 +1,46 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Login</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [formGroup]="form">
   <div>
     <ion-img src="https://coara.co/assets/logo/coara.svg"></ion-img>
-
+    
+    <ion-text color="light">
+      <h1>Login</h1>
+    </ion-text>
+    
+    <ion-text color="light" >
+      <p style="font-size: 15px; margin-bottom: 5px;">Email</p>
+    </ion-text>
     <ion-item lines="none" fill="outline">
-      <ion-label position="floating">Username</ion-label>
       <ion-input formControlName="username"></ion-input>
     </ion-item>
 
+    <ion-text color="light" >
+      <p style="font-size: 15px; margin-bottom: 5px;">Password</p>
+    </ion-text>
     <ion-item lines="none" fill="outline">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-input  [type]="showPassword" formControlName="password"></ion-input>
+      <button  item-end style="background: transparent;" (click)="togglePasswordMode()">
+        <ion-icon color="light" size="large" [name]="showPassword === 'text' ? 'eye-off':'eye'"></ion-icon>
+      </button>
     </ion-item>
 
-    <ion-button (click)="login()">
+    <ion-button class="buttton" shape="round" (click)="login()">
+      <ion-icon name="log-in"></ion-icon>
       <ion-text>Login</ion-text>
     </ion-button>
 
-    <ion-button fill="clear">I forgot my password</ion-button>
+    <ion-button class="link" fill="clear" [routerLink]="['/forgot-password']">
+      <ion-text>Forgot your password?</ion-text>
+    </ion-button>
+
+    <ion-note>
+      Be an early adopter
+    </ion-note>
+
   </div>
 </ion-content>
