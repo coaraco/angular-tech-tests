@@ -1,46 +1,38 @@
-/* eslint-disable */
+import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Store } from "@ngrx/store";
-import { Observable } from "rxjs";
-import { RootState } from "src/app/store";
-import * as FromUser from "src/app/store/user/user.selectors";
+import { AlertController } from "@ionic/angular";
 
 @Component({
   selector: "app-forgot-password",
   templateUrl: "./forgot-password.page.html",
   styleUrls: ["./forgot-password.page.scss"],
 })
-export class ForgotPasswordPage implements OnInit {
-  public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
-  public forgotPasswordForm: FormGroup;
+export class ForgotPasswordPage {
+  public loading = false;
+  public username: string;
 
-  constructor(
-    private store: Store<RootState>,
-    private httpClient: HttpClient
-  ) {}
+  constructor(private http: HttpClient, private alertController: AlertController) {}
 
-  resetPassword() {
-    const username = 'Fran';
-
-    const apiUrl = `https://httpbin.org/get?username=${username}`;
-
-    this.httpClient.get(apiUrl).subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.error(error);
-      }
-    );
+  public async resetPassword(): Promise<void> {
+    this.loading = true;
+    const url = `https://httpbin.org/get?username=${this.username}`;
+    try {
+      await this.http.get(url).toPromise();
+      const alert = await this.alertController.create({
+        header: "Success",
+        message: "Your password has been reset",
+        buttons: ["OK"],
+      });
+      await alert.present();
+    } catch (error) {
+      const alert = await this.alertController.create({
+        header: "Error",
+        message: "An error occurred while resetting your password.",
+        buttons: ["OK"],
+      });
+      await alert.present();
+    } finally {
+      this.loading = false;
+    }
   }
-
-
-  public ngOnInit(): void {
-    this.forgotPasswordForm = new FormGroup({
-      username: new FormControl("", [Validators.required]),
-    });
-  }
-
 }
