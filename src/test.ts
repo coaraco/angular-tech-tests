@@ -6,7 +6,6 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting,
 } from "@angular/platform-browser-dynamic/testing";
-import { HttpClientModule } from "@angular/common/http";
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
