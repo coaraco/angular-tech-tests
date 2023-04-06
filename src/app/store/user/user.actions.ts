@@ -10,5 +10,6 @@ export const setAccessToken = createAction("[USER] Set Access Token", props<{ ac
 export const login = createAction("[USER] Login", props<LoginRequestParams>());
 export const loginSuccess = createAction("[USER] Login Success", props<{ accessToken: string }>());
 export const loginFailure = createAction("[USER] Login Failure", props<{ reason: string }>());
-
 export const logout = createAction("[USER] Logout");
+export const passReset = createAction("[USER] Password Reset");
+export const passResetCompleted = createAction("[USER] Password Reset Completed");
