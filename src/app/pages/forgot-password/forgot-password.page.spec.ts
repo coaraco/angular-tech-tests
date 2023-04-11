@@ -18,7 +18,7 @@ describe("ForgotPasswordPage", () => {
       TestBed.configureTestingModule({
         declarations: [ForgotPasswordPage],
         imports: [IonicModule, RouterTestingModule, HttpClientTestingModule],
-        providers: [provideMockStore({ initialState: initialRootState})],
+        providers: [provideMockStore({ initialState: initialRootState })],
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
       }).compileComponents();
