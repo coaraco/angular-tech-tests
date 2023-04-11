@@ -10,11 +10,10 @@ export const userReducer = createReducer(
   on(UserActions.passReset, (state) => ({ ...state, loading: true })),
 
   on(UserActions.passResetCompleted, state => ({ ...state, loading: false })),
-  
+
   on(UserActions.loginSuccess, (state, { accessToken }) => ({ ...state, accessToken, loading: false })),
 
   on(UserActions.loginFailure, state => ({ ...state, loading: false })),
-
 
   on(UserActions.logout, () => initialState),
 );

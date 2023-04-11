@@ -4,6 +4,7 @@
   "extends": "@coara/eslint-config-ng",
   "rules": {
     "@typescript-eslint/indent": "off",
-    "@angular-eslint/template/no-negated-async": "off"
+    "@angular-eslint/template/no-negated-async": "off",
+    "no-console": 0
   }
 }
