@@ -19,7 +19,7 @@
 
     <ion-item lines="none" fill="outline" class="password-input">
       <ion-label position="stacked">Password</ion-label>
-      <ion-input name="password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+      <ion-input formControlName="password" [type]="showPassword ? 'text' : 'password'"></ion-input>
       <ion-icon class="eyeIcon" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
     </ion-item>
 
