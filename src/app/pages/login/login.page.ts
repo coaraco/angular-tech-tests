@@ -15,7 +15,14 @@ export class LoginPage implements OnInit {
   public loading$: Observable<boolean> = this.store.select(FromUser.selectLoading);
   public form: UntypedFormGroup;
 
-  constructor(private store: Store<RootState>) {}
+  public showPassword: boolean = false;
+  public passwordToggleIcon: string = "eye-off";
+
+  constructor(private store: Store<RootState>) { }
+
+  public togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   public ngOnInit(): void {
     this.form = new UntypedFormGroup({
@@ -29,7 +36,6 @@ export class LoginPage implements OnInit {
   public login(): void {
     const { username, password } = this.form.value;
     if (!username || !password) return;
-
     this.store.dispatch(UserActions.login(this.form.value));
   }
 
