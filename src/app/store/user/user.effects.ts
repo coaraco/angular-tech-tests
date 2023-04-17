@@ -7,6 +7,8 @@ import { AppRoutes } from "src/app/constants";
 import { Observable, of } from "rxjs";
 import { Action } from "@ngrx/store";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpResponse } from "@capacitor/core";
+import { UserData } from "src/app/interfaces";
 
 @Injectable()
 export class UserEffects {
@@ -40,5 +42,20 @@ export class UserEffects {
     { dispatch: false },
   );
 
-  constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) {}
+  public getUserData$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.getUserData),
+      mergeMap(({ userData }) =>
+        this.http.post("https://httpbin.org/anything", { userData }).pipe(
+          map((response: HttpResponse) => {
+            const user = JSON.parse(response.data).userData as UserData;
+            return UserActions.getUserDataSuccess({ userData: user });
+          }),
+          catchError((error: HttpErrorResponse) => of(UserActions.getUserDataFailure())),
+        ),
+      ),
+    ),
+  );
+
+  constructor(private actions$: Actions, private http: HttpClient, private navController: NavController) { }
 }
