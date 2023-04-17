@@ -1,27 +1,123 @@
-#container {
+
+ion-title{
+
+  font-size: 18px;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-thumbnail{
+
+  --border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
 }
 
-#container p {
+ion-toggle{
+
+  width: 200px;
+}
+
+.AddBtn{
+
+  border: none;
+  background: none;
+  margin-top: 10px;
+  font-size: 18px;
+  align-self: flex-start;
+  font-weight: bold;
+  color: rgb(28, 77, 209);
+}
+
+.container{
+  margin-top: 20px;
+  display:flex;
+  align-items: center;
+
+}
+
+.toggle-label{
+
+  font-size: 18px;
+}
+
+
+.label-name{
+
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.content-container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-info {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-right: 45px;
+}
+
+.icon-container{
+  display: flex;
+  align-items: center;
+  margin-left: 12%;
+
+}
+
+ion-icon{
+  font-size: 25px;
+  color: rgb(143, 142, 142);
+
+}
+
+.label-info{
+  color: rgb(143, 142, 142);
+  margin-top:25px;
+  margin-bottom: 7px;
+}
+
+.component-segment{
+  border-radius: 15px;
+  width: 70%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+.team-list{
+  margin-top: 15px;
+}
+.thumbTeams{
+  width: 90px;
+  height: 90px;
+  margin-left: 2px;
+  
+}
+.infoTeams{
+  font-size: 15px;
+}
+ion-card-content{
+  padding-left: 0;
+  padding-right: 0;
+}
+ion-card-title{
+  font-size: 25px;
+}
+ion-segment-button{
+  --border-radius: 20px;
+
+}
+ion-text{
   font-size: 16px;
-  line-height: 22px;
+  margin-bottom: 10px;
 
-  color: #8c8c8c;
-
-  margin: 0;
 }
-
-#container a {
-  text-decoration: none;
+.full-width{
+  width: 100%;
 }
